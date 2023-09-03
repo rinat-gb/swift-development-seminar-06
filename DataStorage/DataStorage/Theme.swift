@@ -8,9 +8,9 @@
 import UIKit
 
 enum ThemeTypes: String {
-    case white
-    case blue
-    case green
+    case whiteTheme = "white"
+    case blueTheme = "blue"
+    case greenTheme = "green"
 }
 
 protocol AppThemeProtocol {
@@ -18,21 +18,21 @@ protocol AppThemeProtocol {
     var backgroundColor: UIColor { get }
 }
 
-enum Theme {
+final class Theme {
     static var currentTheme: AppThemeProtocol = WhiteTheme()
 }
 
 final class WhiteTheme: AppThemeProtocol {
-    var type: ThemeTypes = .white
+    var type: ThemeTypes = .whiteTheme
     var backgroundColor: UIColor = .white
 }
 
 final class BlueTheme: AppThemeProtocol {
-    var type: ThemeTypes = .blue
-    var backgroundColor: UIColor = .init(red: 228 / 255, green: 231 / 255, blue: 1, alpha: 1)
+    var type: ThemeTypes = .blueTheme
+    var backgroundColor: UIColor = .blue
 }
 
 final class GreenTheme: AppThemeProtocol {
-    var type: ThemeTypes = .green
-    var backgroundColor: UIColor = .init(red: 206 / 255, green: 1, blue: 162 / 255, alpha: 1)
+    var type: ThemeTypes = .greenTheme
+    var backgroundColor: UIColor = .green
 }

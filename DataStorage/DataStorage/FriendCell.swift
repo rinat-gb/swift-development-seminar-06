@@ -29,12 +29,16 @@ final class FriendCell: UITableViewCell {
         return label
     }()
 
+    var tap: ((String?, UIImage?) -> Void)?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
 
         setupViews()
         setupConstraints()
+
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnPhoto)))
     }
 
     @available(*, unavailable)
@@ -99,5 +103,9 @@ final class FriendCell: UITableViewCell {
                 }
             }
         }
+    }
+
+    @objc private func tapOnPhoto() {
+        tap?(nameView.text, photoView.image)
     }
 }

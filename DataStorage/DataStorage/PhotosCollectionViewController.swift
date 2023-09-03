@@ -12,10 +12,10 @@ final class PhotosCollectionViewController: UICollectionViewController, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         title = Constants.Titles.photosTitle
 
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = Theme.currentTheme.backgroundColor
+
         collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.CellNames.photosCellName)
 
         NetworkService().getPhotos { [weak self] photosModel in
@@ -32,6 +32,11 @@ final class PhotosCollectionViewController: UICollectionViewController, UICollec
                 }
             }
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = Theme.currentTheme.backgroundColor
     }
 
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {

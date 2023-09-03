@@ -2,7 +2,7 @@
 //  ThemeProvider.swift
 //  DataStorage
 //
-//  Created by Юлия Дебелова on 27.08.2023.
+//  Created by Ринат on 31.08.2023.
 //
 
 import Foundation
@@ -17,9 +17,9 @@ final class ThemeProvider {
         let theme = UserDefaults.standard.string(forKey: "theme")
         let themeType = ThemeTypes(rawValue: theme ?? "white")
         switch themeType {
-        case .white: Theme.currentTheme = WhiteTheme()
-        case .blue: Theme.currentTheme = BlueTheme()
-        case .green: Theme.currentTheme = GreenTheme()
+        case .whiteTheme: Theme.currentTheme = WhiteTheme()
+        case .blueTheme: Theme.currentTheme = BlueTheme()
+        case .greenTheme: Theme.currentTheme = GreenTheme()
         default: Theme.currentTheme = WhiteTheme()
         }
     }

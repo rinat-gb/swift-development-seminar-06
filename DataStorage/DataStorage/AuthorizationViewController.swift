@@ -61,6 +61,11 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate {
         webView.load(URLRequest(url: url!))
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = Theme.currentTheme.backgroundColor
+    }
+
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationResponse: WKNavigationResponse,
                  decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void)

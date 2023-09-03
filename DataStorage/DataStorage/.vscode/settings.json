@@ -1,0 +1,3 @@
+{
+    "swift.sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp"
+}
